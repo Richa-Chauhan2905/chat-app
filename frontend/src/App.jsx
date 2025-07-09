@@ -26,27 +26,29 @@ function App() {
       </div>
     );
   return (
-    <div className="bg-gray-900 text-white">
+    <div className="bg-gray-900 text-white" data-theme="dark">
       <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={authUser ? <Homepage /> : <Navigate to="/login" />}
-        />
-        <Route
-          path="/signup"
-          element={!authUser ? <Signup /> : <Navigate to="/" />}
-        />
-        <Route
-          path="/login"
-          element={!authUser ? <Login /> : <Navigate to="/" />}
-        />
-        <Route path="/settings" element={<Settings />} />
-        <Route
-          path="/profile"
-          element={authUser ? <Profile /> : <Navigate to="/login" />}
-        />
-      </Routes>
+      <div className="pt-16">
+        <Routes>
+          <Route
+            path="/"
+            element={authUser ? <Homepage /> : <Navigate to="/login" />}
+          />
+          <Route
+            path="/signup"
+            element={!authUser ? <Signup /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/login"
+            element={!authUser ? <Login /> : <Navigate to="/" />}
+          />
+          <Route path="/settings" element={<Settings />} />
+          <Route
+            path="/profile"
+            element={authUser ? <Profile /> : <Navigate to="/login" />}
+          />
+        </Routes>
+      </div>
       <Toaster />
     </div>
   );
