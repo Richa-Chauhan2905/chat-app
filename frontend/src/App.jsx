@@ -9,9 +9,11 @@ import Settings from "./pages/Settings";
 import { useAuthStore } from "./store/useAuthStore.js";
 import { Loader } from "lucide-react";
 import { Toaster } from "react-hot-toast";
+import { useThemeStore } from "./store/useThemeStore.js";
 
 function App() {
   const { authUser, checkAuth, isCheckingAuth } = useAuthStore();
+  const {theme} = useThemeStore()
 
   useEffect(() => {
     checkAuth();
@@ -26,7 +28,7 @@ function App() {
       </div>
     );
   return (
-    <div className="bg-gray-900 text-white" data-theme="dark">
+    <div data-theme={theme}>
       <Navbar />
       <div className="pt-16">
         <Routes>
